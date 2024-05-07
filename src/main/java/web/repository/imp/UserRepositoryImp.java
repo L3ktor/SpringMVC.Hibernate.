@@ -10,34 +10,34 @@ import java.util.List;
 
 @Repository
 public class UserRepositoryImp implements UserRepository {
-@PersistenceContext
+    @PersistenceContext
     private EntityManager eM;
-protected EntityManager getEntityManager() {
-    return eM;
-}
 
     @Override
     public void addUser(User user) {
-        getEntityManager().persist(user);
+        eM.persist(user);
     }
+
     @Override
     public void deleteUserById(Long id) {
-        getEntityManager()
+        eM
                 .createQuery("delete from User u where u.id = :id")
                 .setParameter("id", id)
                 .executeUpdate();
     }
+
     @Override
     public void editUser(User user) {
-        getEntityManager().merge(user);
+        eM.merge(user);
     }
+
     @Override
     public User getUserById(Long id) {
-        return getEntityManager().find(User.class, id);
+        return eM.find(User.class, id);
     }
 
     @Override
     public List<User> getAllUsers() {
-    return getEntityManager().createQuery("from User").getResultList();
+        return eM.createQuery("from User").getResultList();
     }
 }

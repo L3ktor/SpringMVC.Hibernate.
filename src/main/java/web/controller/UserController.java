@@ -16,11 +16,6 @@ public class UserController {
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
-
-    @GetMapping(value = "/test")
-    public String test() {
-        return "test";
-    }
 @GetMapping(value = "/")
 public String welcome() {
         return "redirect:/users";

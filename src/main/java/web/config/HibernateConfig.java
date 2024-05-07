@@ -41,7 +41,6 @@ public class HibernateConfig {
         fB.setJpaVendorAdapter(getJpaVendorAdapter());
         fB.setDataSource(getDataSource());
         fB.setPersistenceUnitName("myPU");
-//fB.setPersistenceProviderClass(HibernatePersistenceProvider.class);
         fB.setPackagesToScan(env.getRequiredProperty(PROP_ENTITYMANAGER_PACKAGE_TO_SCAN));
         fB.setJpaProperties(getHibernateProperties());
         return fB;
